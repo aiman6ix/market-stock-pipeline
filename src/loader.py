@@ -47,30 +47,11 @@ def run_loader():
                 database=os.getenv('POSTGRES_DB') or 'airflow',
             )
             engine = create_engine(url_object)
-            """
-            i wanted to verify the onnection worked, at first it didnt since we were missing a port , but after
-            adding it in the .ymal file and in the .env, the conenction was established
-            try:
-                with engine.connect() as connection:
-                    print("Successfully connected to PostgreSQL!")
-            except Exception as e:
-                    print(f"Failed to connect: {e}")
-            """
+          
             #Now i transfer the data from the Dataframe holding the .csv into our SQL database
             df.to_sql(name='stock_prices',con=engine,if_exists='append',index=False)
-            print("Data successfully ingested into PostgreSQL!")
-            """
-            used this to test if the data was successfully transfered from .csv file to SQL talble
-            with engine.connect() as connection:
-                result = connection.execute(text("SELECT COUNT(*) FROM stock_prices;"))
-                print(f"Total rows in table: {result.scalar()}")
-            """
-        """ Used this black of code to get the name of our bucket in the AWS cloud
-        response = s3.list_buckets()
-        
-        for bucket in response['Buckets']:
-            print(f'name of the bucket {bucket["Name"]}')
-        """
+            print("Data successfully ingested into PostgreSQL")
+           
 
 if __name__ == "__main__":
     run_loader()
