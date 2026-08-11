@@ -12,4 +12,4 @@ An automated ETL data pipeline deployed with Apache Airflow, Docker, AWS S3, and
 1. Clone the repository.
 2. In `.env`, replace with your AWS credentials (`AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`).
 3. Run `docker-compose up -d` to launch Airflow and Postgres.
-4. <img width="384" height="376" alt="Screenshot 2023-06-01 235918" src="https://github.com/user-attachments/assets/1a10989e-865c-4bac-aa44-6e66d33443c8" />
+  
