@@ -1,0 +1,6 @@
+ 
+pandas 
+datetime 
+yfinance 
+boto3
+dotenv
